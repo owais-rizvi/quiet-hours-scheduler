@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quiet Hours Scheduler
 
-## Getting Started
+A web application for scheduling and managing quiet hours with user authentication and overlap prevention.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **User Authentication**: Sign up and login with Supabase Auth
+- **Quiet Hours Management**: Create, view, and delete quiet hour schedules
+- **Overlap Prevention**: Prevents conflicting quiet hours from being created
+- **Time Validation**: Ensures end time is after start time
+- **Personalized Dashboard**: Displays user-specific quiet hours
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS
+- **Authentication**: Supabase Auth
+- **Database**: MongoDB
+- **Backend**: Next.js API Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup
 
-## Learn More
+1. **Clone the repository**
+   ```bash
+   git clone <https://github.com/owais-rizvi/quiet-hours-scheduler>
+   cd quiet-hours-scheduler
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Environment Variables**
+   Create a `.env.local` file with:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   MONGO_URI=your-mongodb-connection-string
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+5. **Open [http://localhost:3000](http://localhost:3000)**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Sign Up/Login**: Create an account or login with existing credentials
+2. **Dashboard**: View personalized greeting and manage quiet hours
+3. **Create Quiet Hours**: Set start and end times for your quiet periods
+4. **Delete Quiet Hours**: Remove unwanted schedules with the delete button
+
+## API Endpoints
+
+- `POST /api/signup` - User registration
+- `POST /api/login` - User authentication
+- `GET /api/quiet-hours` - Fetch user's quiet hours
+- `POST /api/quiet-hours` - Create new quiet hours
+- `DELETE /api/quiet-hours?id={id}` - Delete quiet hours
+
+
+
